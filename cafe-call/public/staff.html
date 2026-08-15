@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#171c24" />
+    <title>주문 호출 - 직원 화면</title>
+    <link rel="stylesheet" href="/static/app.css" />
+    <link rel="stylesheet" href="/static/staff.css" />
+  </head>
+  <body class="staff">
+    <header class="s-header">
+      <h1 id="store-name">&nbsp;</h1>
+      <span class="tag" id="tag-display">손님화면 확인 중</span>
+      <span class="tag" id="tag-notify">알림 확인 중</span>
+      <span class="spacer"></span>
+      <button class="btn btn-ghost" id="open-settings">설정</button>
+    </header>
+
+    <div class="s-compose">
+      <button class="btn btn-primary btn-new" id="new-order">+ 새 주문</button>
+      <input id="memo" type="text" maxlength="60" placeholder="메모 (선택) 예: 아메리카노 2잔" />
+      <button class="btn" id="new-order-nophone">번호 없이 주문</button>
+    </div>
+
+    <div class="s-banner hidden" id="banner">
+      <span class="dot"></span>
+      <span id="banner-text"></span>
+    </div>
+
+    <main class="s-main">
+      <section class="s-section">
+        <h2 id="title-preparing">준비중</h2>
+        <div class="s-list" id="list-preparing"></div>
+        <div class="s-empty hidden" id="empty-preparing">진행 중인 주문이 없습니다.</div>
+      </section>
+
+      <section class="s-section">
+        <h2 id="title-ready">호출됨 · 픽업 대기</h2>
+        <div class="s-list" id="list-ready"></div>
+        <div class="s-empty hidden" id="empty-ready">호출한 주문이 없습니다.</div>
+      </section>
+    </main>
+
+    <div class="s-panel hidden" id="settings">
+      <div class="inner">
+        <h2>설정</h2>
+        <div class="row">
+          <label>손님 디스플레이 주소</label>
+          <div class="value" id="customer-url"></div>
+        </div>
+        <div class="row">
+          <label>알림 발송</label>
+          <div class="value" id="notify-info"></div>
+        </div>
+        <div class="foot">
+          <button class="btn" id="open-customer">손님 화면 열기</button>
+          <button class="btn btn-danger" id="logout">로그아웃</button>
+          <button class="btn btn-primary" id="close-settings">닫기</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/staff.js"></script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+# 실제 API 키가 들어가는 파일
+.env
+
+# 주문 DB, 세션 비밀키, 손님 디스플레이 키
+data/
+
+node_modules/
+*.log

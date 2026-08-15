@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>직원 로그인</title>
+    <link rel="stylesheet" href="/static/app.css" />
+  </head>
+  <body>
+    <div class="login-wrap">
+      <form class="login-card" id="form">
+        <h1>직원 화면</h1>
+        <p>PIN을 입력해주세요</p>
+        <input
+          id="pin"
+          type="password"
+          inputmode="numeric"
+          autocomplete="off"
+          maxlength="12"
+          placeholder="••••"
+          aria-label="직원 PIN"
+        />
+        <button class="btn btn-primary" type="submit">들어가기</button>
+        <div class="error-text" id="error" role="alert"></div>
+      </form>
+    </div>
+
+    <script>
+      const form = document.getElementById('form');
+      const pin = document.getElementById('pin');
+      const error = document.getElementById('error');
+      pin.focus();
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        error.textContent = '';
+        const res = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ pin: pin.value }),
+        });
+        if (res.ok) {
+          location.href = '/staff';
+          return;
+        }
+        const body = await res.json().catch(() => ({}));
+        error.textContent = body.error || '로그인에 실패했습니다.';
+        pin.value = '';
+        pin.focus();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,300 @@
+/* 직원용 아이패드 화면. 한 손으로 눌러도 안 틀리게 버튼을 크게 잡는다. */
+
+body.staff {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.s-header {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.s-header h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.s-header .spacer {
+  flex: 1;
+}
+
+.s-compose {
+  flex: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.s-compose input {
+  flex: 1;
+  min-width: 160px;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.s-compose input::placeholder {
+  color: #55627a;
+}
+
+.btn-new {
+  padding: 16px 28px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.s-banner {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.s-banner .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: blink 1.1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+.s-main {
+  flex: 1;
+  padding: 20px;
+  display: grid;
+  gap: 26px;
+  align-content: start;
+}
+
+.s-section > h2 {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.s-list {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+.s-empty {
+  color: #55627a;
+  font-size: 15px;
+  padding: 18px 0;
+}
+
+/* ---------- 주문 카드 ---------- */
+.card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.card.ready {
+  border-color: color-mix(in srgb, var(--ok) 45%, transparent);
+  background: color-mix(in srgb, var(--ok) 7%, var(--surface));
+}
+
+.card .ticket {
+  min-width: 62px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  padding: 8px 10px;
+  border-radius: 14px;
+  background: var(--surface-2);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.card .ticket .n {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.card .ticket .unit {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.card.ready .ticket {
+  background: color-mix(in srgb, var(--ok) 18%, transparent);
+  color: var(--ok);
+}
+
+.card .body {
+  min-width: 0;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.card .meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.card .phone {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.card .phone.none {
+  color: #55627a;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.card .memo {
+  color: var(--muted);
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
+.card .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.card .actions .btn {
+  padding: 12px 16px;
+  white-space: nowrap;
+}
+
+.card .actions .grow {
+  flex: 1;
+}
+
+.card .note {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.card .note.error {
+  color: var(--danger);
+}
+
+/* 직원이 대신 번호를 입력할 때 쓰는 줄 */
+.manual {
+  display: flex;
+  gap: 8px;
+}
+
+.manual input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 설정 패널 ---------- */
+.s-panel {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  z-index: 20;
+}
+
+.s-panel .inner {
+  width: min(520px, 100%);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.s-panel h2 {
+  margin: 0 0 18px;
+  font-size: 18px;
+}
+
+.s-panel .row {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.s-panel .row label {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.s-panel .row .value {
+  padding: 12px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.s-panel .foot {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  z-index: 30;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.toast.error {
+  border-color: var(--danger);
+  color: var(--danger);
+}

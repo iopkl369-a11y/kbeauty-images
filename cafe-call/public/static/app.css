@@ -1,0 +1,183 @@
+:root {
+  --bg: #0e1116;
+  --surface: #171c24;
+  --surface-2: #1f2630;
+  --border: #2b3440;
+  --text: #e8edf4;
+  --muted: #93a1b3;
+  --accent: #ffb020;
+  --accent-ink: #2b1c00;
+  --ok: #34d17f;
+  --warn: #ffb020;
+  --danger: #ff6b6b;
+  --radius: 18px;
+  --font: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic',
+    system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+input {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border-radius: 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  font-weight: 600;
+  transition: transform 0.08s ease, filter 0.15s ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.btn-ok {
+  background: var(--ok);
+  border-color: var(--ok);
+  color: #042415;
+}
+
+.btn-ghost {
+  background: transparent;
+}
+
+.btn-danger {
+  color: var(--danger);
+  background: transparent;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.tag-ok {
+  color: var(--ok);
+  border-color: color-mix(in srgb, var(--ok) 40%, transparent);
+  background: color-mix(in srgb, var(--ok) 12%, transparent);
+}
+
+.tag-warn {
+  color: var(--warn);
+  border-color: color-mix(in srgb, var(--warn) 40%, transparent);
+  background: color-mix(in srgb, var(--warn) 12%, transparent);
+}
+
+.tag-danger {
+  color: var(--danger);
+  border-color: color-mix(in srgb, var(--danger) 40%, transparent);
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* 로그인 */
+.login-wrap {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: min(380px, 100%);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  text-align: center;
+}
+
+.login-card h1 {
+  margin: 0 0 4px;
+  font-size: 22px;
+}
+
+.login-card p {
+  margin: 0 0 24px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  text-align: center;
+  font-size: 28px;
+  letter-spacing: 0.4em;
+  text-indent: 0.4em;
+}
+
+.login-card .btn {
+  width: 100%;
+}
+
+.error-text {
+  color: var(--danger);
+  font-size: 14px;
+  min-height: 20px;
+  margin-top: 10px;
+}

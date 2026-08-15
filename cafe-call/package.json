@@ -1,0 +1,17 @@
+{
+  "name": "cafe-call",
+  "version": "1.0.0",
+  "description": "카페 주문 호출 시스템 - 손님 전용 입력 디스플레이 + 카카오 알림톡 호출",
+  "private": true,
+  "type": "commonjs",
+  "main": "server.js",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {}
+}

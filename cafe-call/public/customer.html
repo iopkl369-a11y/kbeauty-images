@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#0e1116" />
+    <title>주문 알림 신청</title>
+    <link rel="stylesheet" href="/static/app.css" />
+    <link rel="stylesheet" href="/static/customer.css" />
+  </head>
+  <body class="customer">
+    <div class="c-offline hidden" id="offline">연결이 끊겼습니다. 다시 연결하는 중…</div>
+
+    <header class="c-header">
+      <div class="c-store" id="store-name">&nbsp;</div>
+      <div class="c-ticket hidden" id="ticket-badge">
+        <span>대기번호</span><span class="num" id="ticket-num">0</span><span>번</span>
+      </div>
+    </header>
+
+    <main class="c-body">
+      <!-- 대기 중 -->
+      <section class="c-idle" id="view-idle">
+        <div class="mark">☕</div>
+        <h1>어서 오세요</h1>
+        <p>주문을 도와드리겠습니다</p>
+      </section>
+
+      <!-- 번호 입력 -->
+      <section class="c-input hidden" id="view-input">
+        <div class="c-lead">
+          <h1>음료가 준비되면<br /><span class="hl">카카오톡</span>으로 알려드릴게요</h1>
+          <p class="sub">휴대폰 번호를 눌러주세요</p>
+
+          <div class="c-number" id="number" aria-live="polite" aria-label="입력한 휴대폰 번호"></div>
+
+          <p class="c-hint">
+            입력하신 번호는 알림 발송에만 사용되며,<br />
+            음료 수령 후 자동으로 삭제됩니다.
+          </p>
+        </div>
+
+        <div>
+          <div class="c-pad" id="pad">
+            <button class="key" data-key="1">1</button>
+            <button class="key" data-key="2">2</button>
+            <button class="key" data-key="3">3</button>
+            <button class="key" data-key="4">4</button>
+            <button class="key" data-key="5">5</button>
+            <button class="key" data-key="6">6</button>
+            <button class="key" data-key="7">7</button>
+            <button class="key" data-key="8">8</button>
+            <button class="key" data-key="9">9</button>
+            <button class="key fn" data-key="back">← 지우기</button>
+            <button class="key" data-key="0">0</button>
+            <button class="key confirm" data-key="confirm" id="confirm" disabled>확인</button>
+          </div>
+
+          <div class="c-actions">
+            <button class="c-skip" id="skip">번호 없이 주문할게요</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 접수 완료 -->
+      <section class="c-done hidden" id="view-done">
+        <div class="mark">✓</div>
+        <h1>알림 신청이 완료됐어요</h1>
+        <p><span class="ticket-big" id="done-ticket">0</span>번 · 음료가 준비되면 카톡으로 알려드릴게요</p>
+      </section>
+    </main>
+
+    <script src="/static/customer.js"></script>
+  </body>
+</html>
